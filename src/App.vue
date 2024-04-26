@@ -1,26 +1,68 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  
+  <hms-prebuilt room-code="thirsty-malachite-quail"></hms-prebuilt>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import '@100mslive/roomkit-web';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  data() {
+    return {
+      roomCode: '',
+      showHmsPrebuilt: false,
+      showInputForm: true,
+    };
+  },
+  methods: {
+    renderHmsPrebuilt() {
+      this.showHmsPrebuilt = true;
+      this.showInputForm = false;
+    },
+    resetPage() {
+      this.showHmsPrebuilt = false;
+      this.showInputForm = true;
+    },
+  },
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+#form {
+  background-color: black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+}
+
+#btn {
+  padding: 0.5rem;
+  background-color: #2572ed;
+  color: white;
+  border-radius: 0.25rem;
+  width: 10rem;
+  border: none;
+}
+
+#room-code-field {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 2px solid #2572ed;
+  background: none;
+  color: white;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+
+#app {
+  height: 100vh;
 }
 </style>
